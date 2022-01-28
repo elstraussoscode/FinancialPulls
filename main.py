@@ -1,10 +1,14 @@
 from flask import Flask, render_template
 import requests
 import json
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 
-api_key = "488e36aa315e7ad8733d7bca99eb5553"
+load_dotenv()
+
+api_key = os.getenv("api_key")
 
 companies = ["AAPL", "BABA"]
 
