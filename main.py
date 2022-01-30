@@ -24,8 +24,9 @@ def fetch_data():
 
 stocks = fetch_data()
 
+
 # Makes Json Pretty
-#print(json.dumps(stocks, sort_keys=True, indent=4))
+print(json.dumps(stocks, sort_keys=True, indent=4))
 
 for stock in stocks:
     # prints the top level key
@@ -36,6 +37,7 @@ for stock in stocks:
 @app.route("/")
 def home():
     return render_template("tables.html", stocks = stocks)
+
 
 if __name__ == '__main__':
     app.run()
