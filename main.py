@@ -3,14 +3,18 @@ import requests
 import json
 from dotenv import load_dotenv
 import os
+import datetime
+import time
+
 
 app = Flask(__name__)
+
 
 load_dotenv()
 
 api_key = os.getenv("api_key")
 
-companies = ["AAPL", "BABA"]
+companies = ["AAPL", "CRC", "AMZN", "BABA", "FB", "ADBE", "GOOGL", "BAC", "BRK.B", "ABNB", "PYPL", "BKNG"]
 
 # Fetch the Data and create a Dictionary for each stock because the API does not send the ticker symbol
 def fetch_data():
@@ -19,7 +23,7 @@ def fetch_data():
         res = requests.get(f"https://financialmodelingprep.com/api/v3/ratios-ttm/{company}?apikey={api_key}")
         data = res.json()
         financial_statements[company]=data
-
+        time.sleep(2)
     return financial_statements
 
 stocks = fetch_data()
