@@ -4,6 +4,7 @@
 
 **/.env
 
+
 ### Flask ###
 instance/*
 !instance/.gitignore

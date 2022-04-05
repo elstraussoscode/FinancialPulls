@@ -25,6 +25,7 @@ data = res.json()
 #write the data from the observations dict into a data frame
 df = pd.json_normalize(data["observations"])
 
+
 # preselect the columns
 df = df[["realtime_start", "date", "value"]]
 
